@@ -20,6 +20,11 @@
 		B63F964A27C90D9200BB69A4 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F964927C90D9200BB69A4 /* UIViewController+.swift */; };
 		B63F964D27C90E4E00BB69A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F964C27C90E4E00BB69A4 /* DetailViewController.swift */; };
 		B63F964F27C90E5B00BB69A4 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63F964E27C90E5B00BB69A4 /* DetailViewController.storyboard */; };
+		B63F965127C923F500BB69A4 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63F965027C923F500BB69A4 /* HomeHeaderView.xib */; };
+		B63F965327C9296C00BB69A4 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965227C9296C00BB69A4 /* UIView+.swift */; };
+		B63F965627C929C500BB69A4 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965527C929C500BB69A4 /* NibLoadable.swift */; };
+		B63F965827C92A5000BB69A4 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965727C92A5000BB69A4 /* Bundle+.swift */; };
+		B63F965A27C92AE400BB69A4 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965927C92AE400BB69A4 /* NSObject+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 		B63F964927C90D9200BB69A4 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		B63F964C27C90E4E00BB69A4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B63F964E27C90E5B00BB69A4 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
+		B63F965027C923F500BB69A4 /* HomeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
+		B63F965227C9296C00BB69A4 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		B63F965527C929C500BB69A4 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		B63F965727C92A5000BB69A4 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
+		B63F965927C92AE400BB69A4 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				B63F964527C8FAE700BB69A4 /* HomeHeaderView.swift */,
+				B63F965027C923F500BB69A4 /* HomeHeaderView.xib */,
 				B63F964327C8F59800BB69A4 /* HomeViewController.storyboard */,
 				B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */,
 			);
@@ -196,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				B63F964827C90D7E00BB69A4 /* Extension */,
+				B63F965427C929A900BB69A4 /* Protocol */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -203,6 +215,9 @@
 		B63F964827C90D7E00BB69A4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B63F965727C92A5000BB69A4 /* Bundle+.swift */,
+				B63F965927C92AE400BB69A4 /* NSObject+.swift */,
+				B63F965227C9296C00BB69A4 /* UIView+.swift */,
 				B63F964927C90D9200BB69A4 /* UIViewController+.swift */,
 			);
 			path = Extension;
@@ -215,6 +230,14 @@
 				B63F964C27C90E4E00BB69A4 /* DetailViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		B63F965427C929A900BB69A4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B63F965527C929C500BB69A4 /* NibLoadable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63F964F27C90E5B00BB69A4 /* DetailViewController.storyboard in Resources */,
+				B63F965127C923F500BB69A4 /* HomeHeaderView.xib in Resources */,
 				B63F961727C8F01D00BB69A4 /* LaunchScreen.storyboard in Resources */,
 				B63F961427C8F01D00BB69A4 /* Assets.xcassets in Resources */,
 				B63F964427C8F59800BB69A4 /* HomeViewController.storyboard in Resources */,
@@ -350,9 +374,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63F964627C8FAE700BB69A4 /* HomeHeaderView.swift in Sources */,
+				B63F965627C929C500BB69A4 /* NibLoadable.swift in Sources */,
 				B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */,
+				B63F965327C9296C00BB69A4 /* UIView+.swift in Sources */,
 				B63F964A27C90D9200BB69A4 /* UIViewController+.swift in Sources */,
+				B63F965A27C92AE400BB69A4 /* NSObject+.swift in Sources */,
 				B63F964D27C90E4E00BB69A4 /* DetailViewController.swift in Sources */,
+				B63F965827C92A5000BB69A4 /* Bundle+.swift in Sources */,
 				B63F960B27C8F01C00BB69A4 /* AppDelegate.swift in Sources */,
 				B63F960D27C8F01C00BB69A4 /* SceneDelegate.swift in Sources */,
 			);

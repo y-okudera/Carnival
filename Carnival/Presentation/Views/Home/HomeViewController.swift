@@ -7,11 +7,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
-    let headerView = HomeHeaderView()
-    var headerViewTopConstraint: NSLayoutConstraint?
-    
+    @IBOutlet private weak var headerView: HomeHeaderView!
+    @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
             newValue.dataSource = self
@@ -21,8 +20,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        style()
-        layout()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -34,39 +31,9 @@ class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         showNavigationBar(animated: animated)
     }
-
-    func setupNavBar() {
-        navigationController?.navigationBar.topItem?.title = "Good afternoon, APP 🤪"
-    }
 }
 
-extension HomeViewController {
-    func style() {
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.backgroundColor = .systemPink
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-
-    }
-
-    func layout() {
-        view.addSubview(headerView)
-
-        headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-
-        NSLayoutConstraint.activate([
-            headerViewTopConstraint!,
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-        ])
-
-    }
-}
-
+// MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -88,26 +55,29 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "DetailViewController", bundle: .main).instantiateViewController(withIdentifier: "DetailViewController")
+        let vcName = DetailViewController.className
+        let vc = UIStoryboard(name: vcName, bundle: .main)
+            .instantiateViewController(withIdentifier: vcName)
         navigationController?.pushViewController(vc, animated: true)
     }
-
 }
 
+// MARK: - UIScrollViewDelegate
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         let swipingDown = y <= 0
         let shouldSnap = y > 30
-        let labelHeight = headerView.greeting.frame.height + 16 // label + spacer
 
         UIView.animate(withDuration: 0.3) {
-            self.headerView.greeting.alpha = swipingDown ? 1.0 : 0.0
+            self.headerView.updateLabelAlpha(swipingDown ? 1.0 : 0.0)
         }
+
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: []) {
-            self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
+            self.headerViewTopConstraint?.constant = shouldSnap ? -self.headerView.labelHeight : 0
             self.view.layoutIfNeeded()
         }
     }
