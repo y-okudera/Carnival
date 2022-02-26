@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B619E0D127C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */; };
+		B619E0D227C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */; };
+		B619E0D427C9C5F60002BAD3 /* FadeInTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */; };
 		B63F960B27C8F01C00BB69A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960A27C8F01C00BB69A4 /* AppDelegate.swift */; };
 		B63F960D27C8F01C00BB69A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960C27C8F01C00BB69A4 /* SceneDelegate.swift */; };
 		B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */; };
@@ -25,6 +28,8 @@
 		B63F965627C929C500BB69A4 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965527C929C500BB69A4 /* NibLoadable.swift */; };
 		B63F965827C92A5000BB69A4 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965727C92A5000BB69A4 /* Bundle+.swift */; };
 		B63F965A27C92AE400BB69A4 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965927C92AE400BB69A4 /* NSObject+.swift */; };
+		B63F965D27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */; };
+		B63F965E27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopThumbnailTableViewCell.swift; sourceTree = "<group>"; };
+		B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopThumbnailTableViewCell.xib; sourceTree = "<group>"; };
+		B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTabView.swift; sourceTree = "<group>"; };
 		B63F960727C8F01C00BB69A4 /* Carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63F960A27C8F01C00BB69A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B63F960C27C8F01C00BB69A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +78,8 @@
 		B63F965527C929C500BB69A4 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		B63F965727C92A5000BB69A4 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		B63F965927C92AE400BB69A4 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTableViewCell.swift; sourceTree = "<group>"; };
+		B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThumbnailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B619E0CD27C9AFDE0002BAD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B619E0CE27C9AFEE0002BAD3 /* Components */,
+				B63F964327C8F59800BB69A4 /* HomeViewController.storyboard */,
+				B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B619E0CE27C9AFEE0002BAD3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B63F964527C8FAE700BB69A4 /* HomeHeaderView.swift */,
+				B63F965027C923F500BB69A4 /* HomeHeaderView.xib */,
+				B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */,
+				B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */,
+				B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */,
+				B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B63F95FE27C8F01C00BB69A4 = {
 			isa = PBXGroup;
 			children = (
@@ -178,27 +211,24 @@
 			isa = PBXGroup;
 			children = (
 				B63F964727C90D6700BB69A4 /* Utilities */,
-				B63F964127C8F51600BB69A4 /* Views */,
+				B63F964127C8F51600BB69A4 /* Screens */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		B63F964127C8F51600BB69A4 /* Views */ = {
+		B63F964127C8F51600BB69A4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				B63F964B27C90E2200BB69A4 /* Detail */,
 				B63F964227C8F55400BB69A4 /* Home */,
 			);
-			path = Views;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		B63F964227C8F55400BB69A4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B63F964527C8FAE700BB69A4 /* HomeHeaderView.swift */,
-				B63F965027C923F500BB69A4 /* HomeHeaderView.xib */,
-				B63F964327C8F59800BB69A4 /* HomeViewController.storyboard */,
-				B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */,
+				B619E0CD27C9AFDE0002BAD3 /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -236,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				B63F965527C929C500BB69A4 /* NibLoadable.swift */,
+				B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -346,6 +377,8 @@
 			files = (
 				B63F964F27C90E5B00BB69A4 /* DetailViewController.storyboard in Resources */,
 				B63F965127C923F500BB69A4 /* HomeHeaderView.xib in Resources */,
+				B63F965E27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib in Resources */,
+				B619E0D227C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib in Resources */,
 				B63F961727C8F01D00BB69A4 /* LaunchScreen.storyboard in Resources */,
 				B63F961427C8F01D00BB69A4 /* Assets.xcassets in Resources */,
 				B63F964427C8F59800BB69A4 /* HomeViewController.storyboard in Resources */,
@@ -373,15 +406,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B619E0D127C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift in Sources */,
 				B63F964627C8FAE700BB69A4 /* HomeHeaderView.swift in Sources */,
 				B63F965627C929C500BB69A4 /* NibLoadable.swift in Sources */,
 				B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */,
 				B63F965327C9296C00BB69A4 /* UIView+.swift in Sources */,
+				B619E0D427C9C5F60002BAD3 /* FadeInTabView.swift in Sources */,
 				B63F964A27C90D9200BB69A4 /* UIViewController+.swift in Sources */,
 				B63F965A27C92AE400BB69A4 /* NSObject+.swift in Sources */,
 				B63F964D27C90E4E00BB69A4 /* DetailViewController.swift in Sources */,
 				B63F965827C92A5000BB69A4 /* Bundle+.swift in Sources */,
 				B63F960B27C8F01C00BB69A4 /* AppDelegate.swift in Sources */,
+				B63F965D27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift in Sources */,
 				B63F960D27C8F01C00BB69A4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

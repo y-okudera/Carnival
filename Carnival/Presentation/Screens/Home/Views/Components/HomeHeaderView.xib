@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeHeaderView" customModule="Carnival" customModuleProvider="target">
             <connections>
+                <outlet property="fadeInTabView" destination="QsN-DE-BJt" id="rGw-VG-qUa"/>
+                <outlet property="fadeInTabViewBottomConstraint" destination="41X-tM-lRJ" id="W1U-kK-zaO"/>
+                <outlet property="fadeInTabViewTopConstraint" destination="gBF-66-S25" id="PPM-Qn-Bhb"/>
+                <outlet property="inboxButtonBottomConstraint" destination="0WP-YT-Fja" id="GxH-4R-S4h"/>
                 <outlet property="titleLabel" destination="vSF-7A-0X4" id="ERY-3t-neQ"/>
                 <outlet property="titleLabelBottomConstraint" destination="2Nu-3a-3y4" id="ZQU-gC-NHq"/>
                 <outlet property="titleLabelTopConstraint" destination="76P-fe-Hfl" id="DM5-jP-Xwi"/>
@@ -19,17 +23,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good afternoon 😁" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-7A-0X4">
-                    <rect key="frame" x="16" y="8" width="382" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSF-7A-0X4">
+                    <rect key="frame" x="16" y="8" width="382" height="113"/>
+                    <string key="text">Good Morning.🌞
+Good Afternoon.😁
+Good Evening.🌝</string>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdY-RG-4UL">
-                    <rect key="frame" x="16" y="59" width="103.5" height="35"/>
+                    <rect key="frame" x="16" y="129" width="103.5" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="AKP-sY-p1l"/>
                     </constraints>
@@ -43,20 +50,34 @@
                         <action selector="tappedInboxButton:" destination="-1" eventType="touchUpInside" id="ZF1-cK-k06"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥴🥴🥴🥴🥴FadeInTabView🥴🥴🥴🥴🥴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsN-DE-BJt">
+                    <rect key="frame" x="0.0" y="164" width="414" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="BYi-9f-6Na"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemPinkColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="RdY-RG-4UL" secondAttribute="bottom" constant="40" id="0WP-YT-Fja"/>
                 <constraint firstItem="RdY-RG-4UL" firstAttribute="top" secondItem="vSF-7A-0X4" secondAttribute="bottom" constant="8" id="2Nu-3a-3y4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="RdY-RG-4UL" secondAttribute="bottom" constant="8" id="4j9-8m-yzZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="QsN-DE-BJt" secondAttribute="bottom" priority="250" id="41X-tM-lRJ"/>
                 <constraint firstItem="vSF-7A-0X4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="76P-fe-Hfl"/>
                 <constraint firstItem="RdY-RG-4UL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="BFL-lh-KaH"/>
                 <constraint firstItem="vSF-7A-0X4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Pbl-wi-IjV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QsN-DE-BJt" secondAttribute="trailing" id="Res-Lf-dGJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vSF-7A-0X4" secondAttribute="trailing" constant="16" id="Y8S-jb-h2l"/>
+                <constraint firstItem="QsN-DE-BJt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cuE-cE-Eev"/>
+                <constraint firstItem="QsN-DE-BJt" firstAttribute="top" secondItem="RdY-RG-4UL" secondAttribute="bottom" id="gBF-66-S25"/>
                 <constraint firstItem="RdY-RG-4UL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="isg-uA-W7p"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="137.68115942028987" y="53.571428571428569"/>
+            <point key="canvasLocation" x="137.68115942028987" y="79.6875"/>
         </view>
     </objects>
     <resources>
@@ -64,8 +85,8 @@
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
