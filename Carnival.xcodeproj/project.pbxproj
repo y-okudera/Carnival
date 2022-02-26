@@ -10,6 +10,8 @@
 		B619E0D127C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */; };
 		B619E0D227C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */; };
 		B619E0D427C9C5F60002BAD3 /* FadeInTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */; };
+		B619E0DA27CA8E280002BAD3 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0D927CA8E280002BAD3 /* TabView.swift */; };
+		B619E0DC27CA8E490002BAD3 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B619E0DB27CA8E490002BAD3 /* TabView.xib */; };
 		B63F960B27C8F01C00BB69A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960A27C8F01C00BB69A4 /* AppDelegate.swift */; };
 		B63F960D27C8F01C00BB69A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960C27C8F01C00BB69A4 /* SceneDelegate.swift */; };
 		B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */; };
@@ -30,6 +32,8 @@
 		B63F965A27C92AE400BB69A4 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965927C92AE400BB69A4 /* NSObject+.swift */; };
 		B63F965D27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */; };
 		B63F965E27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */; };
+		B694E7BB27CA90EA00FF23DA /* TabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694E7B927CA90EA00FF23DA /* TabCollectionViewCell.swift */; };
+		B694E7BC27CA90EA00FF23DA /* TabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B694E7BA27CA90EA00FF23DA /* TabCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,8 @@
 		B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopThumbnailTableViewCell.swift; sourceTree = "<group>"; };
 		B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopThumbnailTableViewCell.xib; sourceTree = "<group>"; };
 		B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTabView.swift; sourceTree = "<group>"; };
+		B619E0D927CA8E280002BAD3 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		B619E0DB27CA8E490002BAD3 /* TabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabView.xib; sourceTree = "<group>"; };
 		B63F960727C8F01C00BB69A4 /* Carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63F960A27C8F01C00BB69A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B63F960C27C8F01C00BB69A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,8 @@
 		B63F965927C92AE400BB69A4 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTableViewCell.swift; sourceTree = "<group>"; };
 		B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThumbnailTableViewCell.xib; sourceTree = "<group>"; };
+		B694E7B927CA90EA00FF23DA /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
+		B694E7BA27CA90EA00FF23DA /* TabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +128,9 @@
 		B619E0CE27C9AFEE0002BAD3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B63F964527C8FAE700BB69A4 /* HomeHeaderView.swift */,
-				B63F965027C923F500BB69A4 /* HomeHeaderView.xib */,
-				B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */,
-				B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */,
-				B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */,
-				B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */,
+				B694E7BF27CAA50E00FF23DA /* Cell */,
+				B694E7BE27CAA50200FF23DA /* HomeHeaderView */,
+				B694E7BD27CAA4ED00FF23DA /* TabView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -271,6 +276,53 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		B694E7BD27CAA4ED00FF23DA /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				B694E7B927CA90EA00FF23DA /* TabCollectionViewCell.swift */,
+				B694E7BA27CA90EA00FF23DA /* TabCollectionViewCell.xib */,
+				B619E0D927CA8E280002BAD3 /* TabView.swift */,
+				B619E0DB27CA8E490002BAD3 /* TabView.xib */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		B694E7BE27CAA50200FF23DA /* HomeHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B63F964527C8FAE700BB69A4 /* HomeHeaderView.swift */,
+				B63F965027C923F500BB69A4 /* HomeHeaderView.xib */,
+			);
+			path = HomeHeaderView;
+			sourceTree = "<group>";
+		};
+		B694E7BF27CAA50E00FF23DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B694E7C127CAA52500FF23DA /* TopThumbnailTableViewCell */,
+				B694E7C027CAA51A00FF23DA /* ThumbnailTableViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B694E7C027CAA51A00FF23DA /* ThumbnailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */,
+				B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */,
+			);
+			path = ThumbnailTableViewCell;
+			sourceTree = "<group>";
+		};
+		B694E7C127CAA52500FF23DA /* TopThumbnailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B619E0CF27C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift */,
+				B619E0D027C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib */,
+			);
+			path = TopThumbnailTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,9 +430,11 @@
 				B63F964F27C90E5B00BB69A4 /* DetailViewController.storyboard in Resources */,
 				B63F965127C923F500BB69A4 /* HomeHeaderView.xib in Resources */,
 				B63F965E27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib in Resources */,
+				B694E7BC27CA90EA00FF23DA /* TabCollectionViewCell.xib in Resources */,
 				B619E0D227C9B14D0002BAD3 /* TopThumbnailTableViewCell.xib in Resources */,
 				B63F961727C8F01D00BB69A4 /* LaunchScreen.storyboard in Resources */,
 				B63F961427C8F01D00BB69A4 /* Assets.xcassets in Resources */,
+				B619E0DC27CA8E490002BAD3 /* TabView.xib in Resources */,
 				B63F964427C8F59800BB69A4 /* HomeViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,8 +462,10 @@
 			files = (
 				B619E0D127C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift in Sources */,
 				B63F964627C8FAE700BB69A4 /* HomeHeaderView.swift in Sources */,
+				B694E7BB27CA90EA00FF23DA /* TabCollectionViewCell.swift in Sources */,
 				B63F965627C929C500BB69A4 /* NibLoadable.swift in Sources */,
 				B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */,
+				B619E0DA27CA8E280002BAD3 /* TabView.swift in Sources */,
 				B63F965327C9296C00BB69A4 /* UIView+.swift in Sources */,
 				B619E0D427C9C5F60002BAD3 /* FadeInTabView.swift in Sources */,
 				B63F964A27C90D9200BB69A4 /* UIViewController+.swift in Sources */,

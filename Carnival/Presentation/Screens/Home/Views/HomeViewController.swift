@@ -92,17 +92,17 @@ extension HomeViewController: UITableViewDelegate {
 // MARK: - UIScrollViewDelegate
 extension HomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let y = scrollView.contentOffset.y
-        let swipingDown = y <= 0
-        let shouldSnap = y > 40
-
-        print("contentOffset.y", y)
-
         guard let firstCell = tableView.cellForRow(at: [0, 0]) as? FadeInTabSourceView else {
             return
         }
 
         let fadeInTabBaseViewHeight = firstCell.fadeInTabBaseView.frame.height
+
+        let y = scrollView.contentOffset.y
+        let swipingDown = y <= 0
+        let shouldSnap = y > fadeInTabBaseViewHeight
+        print("contentOffset.y", y)
+
         let cellFadeInTabBaseViewAlpha: CGFloat = (y / fadeInTabBaseViewHeight) > 1 ? 1 : y / fadeInTabBaseViewHeight
         firstCell.fadeInTabAlpha = cellFadeInTabBaseViewAlpha
 

@@ -25,25 +25,20 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qy-Zl-X5f">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥴🥴🥴🥴🥴FadeInTabView🥴🥴🥴🥴🥴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOf-Wc-w4M">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="viX-SO-hqS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ti-Qr-I3l" customClass="TabView" customModule="Carnival" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="4PZ-Jh-jxB"/>
-                            <constraint firstAttribute="trailing" secondItem="GOf-Wc-w4M" secondAttribute="trailing" id="aq3-A3-tyc"/>
-                            <constraint firstItem="GOf-Wc-w4M" firstAttribute="leading" secondItem="1qy-Zl-X5f" secondAttribute="leading" id="cye-VL-4Kn"/>
-                            <constraint firstItem="GOf-Wc-w4M" firstAttribute="top" secondItem="1qy-Zl-X5f" secondAttribute="top" id="qJC-7p-MOL"/>
-                            <constraint firstAttribute="bottom" secondItem="GOf-Wc-w4M" secondAttribute="bottom" id="xWK-fk-lFw"/>
+                            <constraint firstAttribute="height" constant="55" id="4PZ-Jh-jxB"/>
+                            <constraint firstAttribute="bottom" secondItem="7Ti-Qr-I3l" secondAttribute="bottom" id="8iY-rj-BqI"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ti-Qr-I3l" secondAttribute="trailing" id="DcX-JP-bn4"/>
+                            <constraint firstItem="7Ti-Qr-I3l" firstAttribute="leading" secondItem="1qy-Zl-X5f" secondAttribute="leading" id="RWw-2W-Fnf"/>
+                            <constraint firstItem="7Ti-Qr-I3l" firstAttribute="top" secondItem="1qy-Zl-X5f" secondAttribute="top" id="x5J-WR-bXn"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SampleSampleSampleSampleSampleSample" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugb-4A-BFe">

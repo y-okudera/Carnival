@@ -7,13 +7,19 @@
 
 import UIKit
 
-final class HomeHeaderView: UIView {
+final class HomeHeaderView: UIView, FadeInTabDestinationView {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var titleLabelBottomConstraint: NSLayoutConstraint!
 
-    @IBOutlet private weak var fadeInTabView: UILabel!
+    @IBOutlet private(set) weak var fadeInTabView: UIView!
+
+    @IBOutlet private weak var tabView: TabView! {
+        willSet {
+            newValue.delegate = self
+        }
+    }
 
     /// inboxButtonとfadeInTabViewの間のレイアウト制約
     ///
@@ -66,7 +72,7 @@ final class HomeHeaderView: UIView {
 
 extension HomeHeaderView {
 
-    func setup() {
+    private func setup() {
         hideFadeInTabView()
     }
 
@@ -101,5 +107,12 @@ extension HomeHeaderView {
 
     func update(_ offsetY: CGFloat) {
         // TODO: - hideFadeInTabView() と showFadeInTabView() の0/1のアニメーションではなく、スクロールのoffsetに応じてインタラクティブにアニメーションさせる
+    }
+}
+
+// MARK: - TabViewDelegate
+extension HomeHeaderView: TabViewDelegate {
+    func tabView(_ tabView: TabView, didTapWithTabId id: String) {
+        print(#function, "id=\(id)")
     }
 }
