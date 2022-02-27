@@ -31,7 +31,7 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
 
     /// requestsButton.bottomとHomeHeaderView.bottomの間のレイアウト制約
     ///
-    /// fadeInTabViewの表示の際はfadeInTabViewのheightに、非表示の際は0に切り替える
+    /// fadeInTabViewの表示の際はfadeInTabViewのheightに、非表示の際は8に切り替える
     @IBOutlet private weak var requestsButtonBottomConstraint: NSLayoutConstraint!
 
     /// headerImageView height + top and bottom spacer
@@ -83,7 +83,7 @@ extension HomeHeaderView {
         fadeInTabAlpha = 0
 
         // requestsボタンのbottomとHomeHeaderView自体のbottomとの間の制約
-        requestsButtonBottomConstraint.constant = 0
+        requestsButtonBottomConstraint.constant = 8
 
         // requestsボタンのbottomとfadeInTabViewのTopとの間の制約
         // 隠すためにheightの2倍空ける
