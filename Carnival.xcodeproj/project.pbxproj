@@ -150,14 +150,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B619E0CD27C9AFDE0002BAD3 /* Views */ = {
+		B619E0CD27C9AFDE0002BAD3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B619E0CE27C9AFEE0002BAD3 /* Components */,
 				B63F964327C8F59800BB69A4 /* HomeViewController.storyboard */,
 				B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */,
+				B619E0CE27C9AFEE0002BAD3 /* Components */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		B619E0CE27C9AFEE0002BAD3 /* Components */ = {
@@ -259,7 +259,7 @@
 		B63F964227C8F55400BB69A4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B619E0CD27C9AFDE0002BAD3 /* Views */,
+				B619E0CD27C9AFDE0002BAD3 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
