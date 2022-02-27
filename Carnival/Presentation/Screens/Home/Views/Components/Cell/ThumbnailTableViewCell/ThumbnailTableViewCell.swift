@@ -5,6 +5,7 @@
 //  Created by Yuki Okudera on 2022/02/26.
 //
 
+import SkeletonView
 import UIKit
 
 final class ThumbnailTableViewCell: UITableViewCell {
@@ -14,6 +15,17 @@ final class ThumbnailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupSkeletonView()
+    }
+
+    private func setupSkeletonView() {
+        self.isSkeletonable = true
+        thumbnailImageView.isSkeletonable = true
+        nameLabel.isSkeletonable = true
+        nameLabel.skeletonTextNumberOfLines = 2
+    }
+
+    func configure() {
+        self.selectionStyle = .none
     }
 }

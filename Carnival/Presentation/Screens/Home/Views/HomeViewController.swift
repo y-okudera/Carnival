@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class HomeViewController: UIViewController {
 
@@ -28,6 +29,7 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSkeletonView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,16 +38,34 @@ final class HomeViewController: UIViewController {
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
+
+        showSkeleton()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showNavigationBar(animated: animated)
     }
+
+    private func setupSkeletonView() {
+        self.view.isSkeletonable = true
+        tableView.isSkeletonable = true
+        tableView.isUserInteractionDisabledWhenSkeletonIsActive = false
+    }
+
+    private func showSkeleton() {
+        self.view.showAnimatedSkeleton()
+
+        // サンプルのため、必ず1.5sec後にhideSkeleton()する
+        // 実際は、APIなどからデータ取得が完了して、reloadData()するタイミングで、hideSkeleton()する
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            self?.view.hideSkeleton()
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController: SkeletonTableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -72,6 +92,52 @@ extension HomeViewController: UITableViewDataSource {
         case 1:
             let cellIdentifier = ThumbnailTableViewCell.className
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ThumbnailTableViewCell
+            cell.configure()
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+
+    // MARK: - SkeletonTableViewDataSource
+
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        return 2
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 20
+        default:
+            return 0
+        }
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        switch indexPath.section {
+        case 0:
+            return TopThumbnailTableViewCell.className
+        case 1:
+            return ThumbnailTableViewCell.className
+        default:
+            return ""
+        }
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, skeletonCellForRowAt indexPath: IndexPath) -> UITableViewCell? {
+        switch indexPath.section {
+        case 0:
+            let cellIdentifier = TopThumbnailTableViewCell.className
+            let cell = skeletonView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TopThumbnailTableViewCell
+            cell.configure()
+            return cell
+        case 1:
+            let cellIdentifier = ThumbnailTableViewCell.className
+            let cell = skeletonView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ThumbnailTableViewCell
+            cell.configure()
             return cell
         default:
             return UITableViewCell()
@@ -81,6 +147,15 @@ extension HomeViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        // スケルトン表示中は選択不可にする
+        guard !tableView.sk.isSkeletonActive else {
+            return nil
+        }
+        return indexPath
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vcName = DetailViewController.className
         let vc = UIStoryboard(name: vcName, bundle: .main)
@@ -91,6 +166,7 @@ extension HomeViewController: UITableViewDelegate {
 
 // MARK: - UIScrollViewDelegate
 extension HomeViewController: UIScrollViewDelegate {
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let firstCell = tableView.cellForRow(at: [0, 0]) as? FadeInTabSourceView else {
             return

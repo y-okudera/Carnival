@@ -5,6 +5,7 @@
 //  Created by Yuki Okudera on 2022/02/26.
 //
 
+import SkeletonView
 import UIKit
 
 final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
@@ -24,10 +25,18 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupSkeletonView()
+    }
+
+    private func setupSkeletonView() {
+        self.isSkeletonable = true
+        thumbnailImageView.isSkeletonable = true
+        nameLabel.isSkeletonable = true
+        nameLabel.skeletonTextNumberOfLines = 2
     }
 
     func configure() {
         fadeInTabAlpha = 0
+        self.selectionStyle = .none
     }
 }
