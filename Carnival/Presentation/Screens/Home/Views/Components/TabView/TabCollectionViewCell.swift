@@ -24,7 +24,7 @@ final class TabCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction private func tappedButton(_ sender: UIButton) {
-        print("Tapped \(button.title(for: .normal) ?? "")")
+        print("Tapped tag: '\(button.title(for: .normal) ?? "")'")
         guard let id = data?.id else {
             return
         }

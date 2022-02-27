@@ -177,18 +177,17 @@ extension HomeViewController: UIScrollViewDelegate {
         let y = scrollView.contentOffset.y
         let swipingDown = y <= 0
         let shouldSnap = y > fadeInTabBaseViewHeight
-        print("contentOffset.y", y)
 
         let cellFadeInTabBaseViewAlpha: CGFloat = (y / fadeInTabBaseViewHeight) > 1 ? 1 : y / fadeInTabBaseViewHeight
         firstCell.fadeInTabAlpha = cellFadeInTabBaseViewAlpha
 
         UIView.animate(withDuration: 0.3) {
-            self.headerView.updateTitleLabelAlpha(swipingDown ? 1.0 : 0.0)
+            self.headerView.updateHeaderImageViewAlpha(swipingDown ? 1.0 : 0.0)
         }
 
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: []) {
-            // titleLabelを画面外に
-            self.headerViewTopConstraint?.constant = shouldSnap ? -self.headerView.titleLabelHeight : 0
+            // headerImageViewを画面外に移動させる
+            self.headerViewTopConstraint?.constant = shouldSnap ? -self.headerView.headerImageViewHeight : 0
 
             shouldSnap ? self.headerView.showFadeInTabView() : self.headerView.hideFadeInTabView()
 

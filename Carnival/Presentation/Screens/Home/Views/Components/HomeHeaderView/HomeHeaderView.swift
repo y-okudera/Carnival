@@ -9,7 +9,7 @@ import UIKit
 
 final class HomeHeaderView: UIView, FadeInTabDestinationView {
     
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var headerImageView: UIImageView!
 
     @IBOutlet private(set) weak var fadeInTabView: UIView!
 
@@ -19,7 +19,7 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
         }
     }
 
-    /// inboxButtonとfadeInTabViewの間のレイアウト制約
+    /// requestsButtonとfadeInTabViewの間のレイアウト制約
     ///
     /// fadeInTabViewの表示の際は0に、非表示の際はfadeInTabViewのheight * 2に切り替える
     @IBOutlet private weak var fadeInTabViewTopConstraint: NSLayoutConstraint!
@@ -29,16 +29,16 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
     /// fadeInTabViewの表示の際はpriorityをHighに、非表示の際はLowに切り替える
     @IBOutlet private weak var fadeInTabViewBottomConstraint: NSLayoutConstraint! // 0
 
-    /// inboxButton.bottomとHomeHeaderView.bottomの間のレイアウト制約
+    /// requestsButton.bottomとHomeHeaderView.bottomの間のレイアウト制約
     ///
     /// fadeInTabViewの表示の際はfadeInTabViewのheightに、非表示の際は0に切り替える
-    @IBOutlet private weak var inboxButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var requestsButtonBottomConstraint: NSLayoutConstraint!
 
-    /// titleLabel height + top and bottom spacer
-    var titleLabelHeight: CGFloat {
-        let height = titleLabel.frame.height
-        + (titleLabel.getConstraints(attribute: .top).first?.constant ?? 0)
-        + (titleLabel.getConstraints(attribute: .bottom).first?.constant ?? 0)
+    /// headerImageView height + top and bottom spacer
+    var headerImageViewHeight: CGFloat {
+        let height = headerImageView.frame.height
+        + (headerImageView.getConstraints(attribute: .top).first?.constant ?? 0)
+        + (headerImageView.getConstraints(attribute: .bottom).first?.constant ?? 0)
         return height
     }
 
@@ -64,8 +64,8 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
         setup()
     }
 
-    @IBAction private func tappedInboxButton(_ sender: UIButton) {
-        print("Tapped Inbox Button!")
+    @IBAction private func tappedRequestsButton(_ sender: UIButton) {
+        print(#function)
     }
 }
 
@@ -75,17 +75,17 @@ extension HomeHeaderView {
         hideFadeInTabView()
     }
 
-    func updateTitleLabelAlpha(_ alpha: CGFloat) {
-        titleLabel.alpha = alpha
+    func updateHeaderImageViewAlpha(_ alpha: CGFloat) {
+        headerImageView.alpha = alpha
     }
 
     func hideFadeInTabView() {
         fadeInTabAlpha = 0
 
-        // inboxボタンのbottomとHomeHeaderView自体のbottomとの間の制約
-        inboxButtonBottomConstraint.constant = 0
+        // requestsボタンのbottomとHomeHeaderView自体のbottomとの間の制約
+        requestsButtonBottomConstraint.constant = 0
 
-        // inboxボタンのbottomとfadeInTabViewのTopとの間の制約
+        // requestsボタンのbottomとfadeInTabViewのTopとの間の制約
         // 隠すためにheightの2倍空ける
         fadeInTabViewTopConstraint.constant = fadeInTabView.frame.height * 2
 
@@ -95,10 +95,10 @@ extension HomeHeaderView {
     func showFadeInTabView() {
         fadeInTabAlpha = 1
 
-        // inboxボタンのbottomとHomeHeaderView自体のbottomとの間の制約
-        inboxButtonBottomConstraint.constant = fadeInTabView.frame.height
+        // requestsボタンのbottomとHomeHeaderView自体のbottomとの間の制約
+        requestsButtonBottomConstraint.constant = fadeInTabView.frame.height
 
-        // inboxボタンのbottomとfadeInTabViewのTopとの間の制約
+        // requestsボタンのbottomとfadeInTabViewのTopとの間の制約
         fadeInTabViewTopConstraint.constant = 0
 
         fadeInTabViewBottomConstraint.priority = .defaultHigh
