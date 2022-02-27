@@ -10,8 +10,6 @@ import UIKit
 final class HomeHeaderView: UIView, FadeInTabDestinationView {
     
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var titleLabelBottomConstraint: NSLayoutConstraint!
 
     @IBOutlet private(set) weak var fadeInTabView: UIView!
 
@@ -38,7 +36,9 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
 
     /// titleLabel height + top and bottom spacer
     var titleLabelHeight: CGFloat {
-        let height = titleLabel.frame.height + titleLabelTopConstraint.constant + titleLabelBottomConstraint.constant
+        let height = titleLabel.frame.height
+        + (titleLabel.getConstraints(attribute: .top).first?.constant ?? 0)
+        + (titleLabel.getConstraints(attribute: .bottom).first?.constant ?? 0)
         return height
     }
 
