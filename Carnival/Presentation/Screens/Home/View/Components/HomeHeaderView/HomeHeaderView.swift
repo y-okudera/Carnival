@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HomeHeaderViewDelegate: AnyObject {
+    func homeHeaderView(_ homeHeaderView: HomeHeaderView, didTapTabId tabId: Int)
+}
+
 final class HomeHeaderView: UIView, FadeInTabDestinationView {
     
     @IBOutlet private weak var headerImageView: UIImageView!
@@ -33,6 +37,8 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
     ///
     /// fadeInTabViewの表示の際はfadeInTabViewのheightに、非表示の際は8に切り替える
     @IBOutlet private weak var requestsButtonBottomConstraint: NSLayoutConstraint!
+
+    weak var delegate: HomeHeaderViewDelegate?
 
     /// headerImageView height + top and bottom spacer
     var headerImageViewHeight: CGFloat {
@@ -109,9 +115,15 @@ extension HomeHeaderView {
     }
 }
 
+extension HomeHeaderView {
+    func setTabData(_ tabDataArray: [TabData]) {
+        tabView.tabDataArray = tabDataArray
+    }
+}
+
 // MARK: - TabViewDelegate
 extension HomeHeaderView: TabViewDelegate {
-    func tabView(_ tabView: TabView, didTapWithTabId id: String) {
-        print(#function, "id=\(id)")
+    func tabView(_ tabView: TabView, didTapTabId tabId: Int) {
+        delegate?.homeHeaderView(self, didTapTabId: tabId)
     }
 }

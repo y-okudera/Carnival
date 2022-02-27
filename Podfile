@@ -4,6 +4,7 @@ target 'Carnival' do
   use_frameworks!
 
   pod 'SkeletonView'
+  pod 'Kingfisher'
 
   target 'CarnivalTests' do
     inherit! :search_paths

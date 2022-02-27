@@ -8,15 +8,15 @@
 import UIKit
 
 protocol TabCollectionViewCellDelegate: AnyObject {
-    func tabCollectionViewCell(_ tabCollectionViewCell: TabCollectionViewCell, didTapWithTabId id: String)
+    func tabCollectionViewCell(_ tabCollectionViewCell: TabCollectionViewCell, didTapTabId tabId: Int)
 }
 
 final class TabCollectionViewCell: UICollectionViewCell {
 
-    weak var delegate: TabCollectionViewCellDelegate?
-    private var data: (id: String, title: String)?
+    @IBOutlet private weak var button: UIButton!
 
-    @IBOutlet weak var button: UIButton!
+    weak var delegate: TabCollectionViewCellDelegate?
+    private var data: TabData?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,14 +25,14 @@ final class TabCollectionViewCell: UICollectionViewCell {
 
     @IBAction private func tappedButton(_ sender: UIButton) {
         print("Tapped tag: '\(button.title(for: .normal) ?? "")'")
-        guard let id = data?.id else {
+        guard let tabId = data?.id else {
             return
         }
-        delegate?.tabCollectionViewCell(self, didTapWithTabId: id)
+        delegate?.tabCollectionViewCell(self, didTapTabId: tabId)
     }
 
-    func configure(id: String, title: String) {
-        data = (id, title)
-        button.setTitle(title, for: .normal)
+    func configure(data: TabData) {
+        self.data = data
+        button.setTitle(data.title, for: .normal)
     }
 }

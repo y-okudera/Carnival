@@ -1,16 +1,20 @@
 PODS:
+  - Kingfisher (7.2.0)
   - SkeletonView (1.29.2)
 
 DEPENDENCIES:
+  - Kingfisher
   - SkeletonView
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - SkeletonView
 
 SPEC CHECKSUMS:
+  Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
 
-PODFILE CHECKSUM: 0baf0fde808b377bcec0521402ad0fb1fac3fb71
+PODFILE CHECKSUM: b7efddaa45729e7fb95bb0757e7b1faf394abf66
 
 COCOAPODS: 1.11.2

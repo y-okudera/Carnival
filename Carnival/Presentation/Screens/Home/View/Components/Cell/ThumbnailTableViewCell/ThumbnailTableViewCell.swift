@@ -25,7 +25,16 @@ final class ThumbnailTableViewCell: UITableViewCell {
         nameLabel.skeletonTextNumberOfLines = 2
     }
 
-    func configure() {
+    func configure(data: HomeContentData) {
         self.selectionStyle = .none
+        nameLabel.text = data.title
+        thumbnailImageView.kf.setImage(
+            with: URL(string: data.thumbnailUrl),
+            placeholder: UIImage(named: "placeholder"),
+            options: [
+                .transition(.fade(0.5)),
+                .cacheOriginalImage
+            ]
+        )
     }
 }

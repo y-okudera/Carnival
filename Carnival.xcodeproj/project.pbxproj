@@ -13,6 +13,11 @@
 		B619E0D427C9C5F60002BAD3 /* FadeInTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */; };
 		B619E0DA27CA8E280002BAD3 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619E0D927CA8E280002BAD3 /* TabView.swift */; };
 		B619E0DC27CA8E490002BAD3 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B619E0DB27CA8E490002BAD3 /* TabView.xib */; };
+		B63E9E6827CBB64A00FFA9F3 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E9E6727CBB64A00FFA9F3 /* HomePresenter.swift */; };
+		B63E9E6B27CBBADA00FFA9F3 /* TabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E9E6A27CBBADA00FFA9F3 /* TabData.swift */; };
+		B63E9E6E27CBC6DF00FFA9F3 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E9E6D27CBC6DF00FFA9F3 /* HomeBuilder.swift */; };
+		B63E9E7027CBCE7B00FFA9F3 /* HomeViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E9E6F27CBCE7B00FFA9F3 /* HomeViewData.swift */; };
+		B63E9E7227CBCEBA00FFA9F3 /* HomeContentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63E9E7127CBCEBA00FFA9F3 /* HomeContentData.swift */; };
 		B63F960B27C8F01C00BB69A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960A27C8F01C00BB69A4 /* AppDelegate.swift */; };
 		B63F960D27C8F01C00BB69A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960C27C8F01C00BB69A4 /* SceneDelegate.swift */; };
 		B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63F960E27C8F01C00BB69A4 /* HomeViewController.swift */; };
@@ -68,6 +73,11 @@
 		B619E0D327C9C5F60002BAD3 /* FadeInTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInTabView.swift; sourceTree = "<group>"; };
 		B619E0D927CA8E280002BAD3 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		B619E0DB27CA8E490002BAD3 /* TabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabView.xib; sourceTree = "<group>"; };
+		B63E9E6727CBB64A00FFA9F3 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		B63E9E6A27CBBADA00FFA9F3 /* TabData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabData.swift; sourceTree = "<group>"; };
+		B63E9E6D27CBC6DF00FFA9F3 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		B63E9E6F27CBCE7B00FFA9F3 /* HomeViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewData.swift; sourceTree = "<group>"; };
+		B63E9E7127CBCEBA00FFA9F3 /* HomeContentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentData.swift; sourceTree = "<group>"; };
 		B63F960727C8F01C00BB69A4 /* Carnival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carnival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63F960A27C8F01C00BB69A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B63F960C27C8F01C00BB69A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +100,7 @@
 		B63F965527C929C500BB69A4 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		B63F965727C92A5000BB69A4 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		B63F965927C92AE400BB69A4 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
-		B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTableViewCell.swift; sourceTree = "<group>"; };
+		B63F965B27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ThumbnailTableViewCell.swift; sourceTree = "<group>"; };
 		B63F965C27C93ADE00BB69A4 /* ThumbnailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThumbnailTableViewCell.xib; sourceTree = "<group>"; };
 		B694E7B927CA90EA00FF23DA /* TabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewCell.swift; sourceTree = "<group>"; };
 		B694E7BA27CA90EA00FF23DA /* TabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -168,6 +178,32 @@
 				B694E7BD27CAA4ED00FF23DA /* TabView */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B63E9E6627CBB63C00FFA9F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B63E9E6727CBB64A00FFA9F3 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B63E9E6927CBB7D400FFA9F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B63E9E6A27CBBADA00FFA9F3 /* TabData.swift */,
+				B63E9E6F27CBCE7B00FFA9F3 /* HomeViewData.swift */,
+				B63E9E7127CBCEBA00FFA9F3 /* HomeContentData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B63E9E6C27CBC6C600FFA9F3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				B63E9E6D27CBC6DF00FFA9F3 /* HomeBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		B63F95FE27C8F01C00BB69A4 = {
@@ -259,6 +295,9 @@
 		B63F964227C8F55400BB69A4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B63E9E6C27CBC6C600FFA9F3 /* Builder */,
+				B63E9E6927CBB7D400FFA9F3 /* Model */,
+				B63E9E6627CBB63C00FFA9F3 /* Presenter */,
 				B619E0CD27C9AFDE0002BAD3 /* View */,
 			);
 			path = Home;
@@ -595,20 +634,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B619E0D127C9B14D0002BAD3 /* TopThumbnailTableViewCell.swift in Sources */,
+				B63E9E6B27CBBADA00FFA9F3 /* TabData.swift in Sources */,
+				B63E9E7227CBCEBA00FFA9F3 /* HomeContentData.swift in Sources */,
 				B63F964627C8FAE700BB69A4 /* HomeHeaderView.swift in Sources */,
 				B694E7BB27CA90EA00FF23DA /* TabCollectionViewCell.swift in Sources */,
 				B63F965627C929C500BB69A4 /* NibLoadable.swift in Sources */,
 				B63F960F27C8F01C00BB69A4 /* HomeViewController.swift in Sources */,
+				B63E9E6E27CBC6DF00FFA9F3 /* HomeBuilder.swift in Sources */,
 				B619E0DA27CA8E280002BAD3 /* TabView.swift in Sources */,
 				B63F965327C9296C00BB69A4 /* UIView+.swift in Sources */,
 				B619E0D427C9C5F60002BAD3 /* FadeInTabView.swift in Sources */,
 				B63F964A27C90D9200BB69A4 /* UIViewController+.swift in Sources */,
 				B63F965A27C92AE400BB69A4 /* NSObject+.swift in Sources */,
+				B63E9E7027CBCE7B00FFA9F3 /* HomeViewData.swift in Sources */,
 				B63F964D27C90E4E00BB69A4 /* DetailViewController.swift in Sources */,
 				B63F965827C92A5000BB69A4 /* Bundle+.swift in Sources */,
 				B63F960B27C8F01C00BB69A4 /* AppDelegate.swift in Sources */,
 				B63F965D27C93ADE00BB69A4 /* ThumbnailTableViewCell.swift in Sources */,
 				B63F960D27C8F01C00BB69A4 /* SceneDelegate.swift in Sources */,
+				B63E9E6827CBB64A00FFA9F3 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

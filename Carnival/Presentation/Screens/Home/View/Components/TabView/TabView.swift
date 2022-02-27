@@ -8,23 +8,10 @@
 import UIKit
 
 protocol TabViewDelegate: AnyObject {
-    func tabView(_ tabView: TabView, didTapWithTabId id: String)
+    func tabView(_ tabView: TabView, didTapTabId tabId: Int)
 }
 
 final class TabView: UIView {
-
-    /// サンプルデータ
-    ///
-    /// 実際は、タップ時にタブIDに基づいてデータを読み直すとかします
-    private let tabTitles = [
-        (id: "0", title: "すべて"),
-        (id: "1", title: "関連動画"),
-        (id: "2", title: "提供: yuoku"),
-        (id: "3", title: "最近アップロードされた動画"),
-        (id: "4", title: "視聴済み"),
-    ]
-
-    weak var delegate: TabViewDelegate?
 
     @IBOutlet private weak var collectionView: UICollectionView! {
         willSet {
@@ -38,6 +25,14 @@ final class TabView: UIView {
                     forCellWithReuseIdentifier: $0
                 )
             }
+        }
+    }
+
+    weak var delegate: TabViewDelegate?
+
+    var tabDataArray: [TabData] = [] {
+        didSet {
+            collectionView.reloadData()
         }
     }
 
@@ -56,12 +51,12 @@ final class TabView: UIView {
 extension TabView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tabTitles.count
+        return tabDataArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabCollectionViewCell.className, for: indexPath) as! TabCollectionViewCell
-        cell.configure(id: tabTitles[indexPath.row].id, title: tabTitles[indexPath.row].title)
+        cell.configure(data: tabDataArray[indexPath.row])
         cell.delegate = self
         return cell
     }
@@ -74,8 +69,8 @@ extension TabView: UICollectionViewDelegate {
 
 // MARK: - TabCollectionViewCellDelegate
 extension TabView: TabCollectionViewCellDelegate {
-    func tabCollectionViewCell(_ tabCollectionViewCell: TabCollectionViewCell, didTapWithTabId id: String) {
-        print(#function, "id=\(id)")
-        delegate?.tabView(self, didTapWithTabId: id)
+    func tabCollectionViewCell(_ tabCollectionViewCell: TabCollectionViewCell, didTapTabId tabId: Int) {
+        print(#function, "tabId=\(tabId)")
+        delegate?.tabView(self, didTapTabId: tabId)
     }
 }

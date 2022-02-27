@@ -5,6 +5,7 @@
 //  Created by Yuki Okudera on 2022/02/26.
 //
 
+import Kingfisher
 import SkeletonView
 import UIKit
 
@@ -35,8 +36,17 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
         nameLabel.skeletonTextNumberOfLines = 2
     }
 
-    func configure() {
-        fadeInTabAlpha = 0
+    func configure(data: HomeContentData) {
         self.selectionStyle = .none
+        fadeInTabAlpha = 0
+        nameLabel.text = data.title
+        thumbnailImageView.kf.setImage(
+            with: URL(string: data.thumbnailUrl),
+            placeholder: UIImage(named: "placeholder"),
+            options: [
+                .transition(.fade(0.5)),
+                .cacheOriginalImage
+            ]
+        )
     }
 }

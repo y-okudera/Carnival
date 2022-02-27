@@ -8,9 +8,18 @@
 import UIKit
 import SkeletonView
 
+protocol HomeView: AnyObject {
+    func reloadTabs(tabDataArray: [TabData])
+    func reloadView()
+}
+
 final class HomeViewController: UIViewController {
 
-    @IBOutlet private weak var headerView: HomeHeaderView!
+    @IBOutlet private weak var headerView: HomeHeaderView! {
+        willSet {
+            newValue.delegate = self
+        }
+    }
     @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
@@ -27,9 +36,12 @@ final class HomeViewController: UIViewController {
         }
     }
 
+    var presenter: HomePresenter!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSkeletonView()
+        showSkeleton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +50,7 @@ final class HomeViewController: UIViewController {
         tableView.indexPathsForSelectedRows?.forEach {
             tableView.deselectRow(at: $0, animated: true)
         }
-
-        showSkeleton()
+        presenter.viewWillAppear()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,12 +66,39 @@ final class HomeViewController: UIViewController {
 
     private func showSkeleton() {
         self.view.showAnimatedSkeleton()
+    }
 
-        // サンプルのため、必ず1.5sec後にhideSkeleton()する
-        // 実際は、APIなどからデータ取得が完了して、reloadData()するタイミングで、hideSkeleton()する
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            self?.view.hideSkeleton()
+    private func hideSkeleton() {
+        self.view.hideSkeleton()
+    }
+}
+
+// MARK: - HomeView
+extension HomeViewController: HomeView {
+
+    func reloadTabs(tabDataArray: [TabData]) {
+        headerView.setTabData(tabDataArray)
+
+        guard let firstTabData = tabDataArray.first else {
+            return
         }
+
+        showSkeleton()
+        presenter.requestHomeViewData(tabId: firstTabData.id)
+    }
+
+    func reloadView() {
+        tableView.reloadData()
+        hideSkeleton()
+    }
+}
+
+// MARK: - HomeHeaderViewDelegate
+extension HomeViewController: HomeHeaderViewDelegate {
+
+    func homeHeaderView(_ homeHeaderView: HomeHeaderView, didTapTabId tabId: Int) {
+        showSkeleton()
+        presenter.requestHomeViewData(tabId: tabId)
     }
 }
 
@@ -76,7 +114,7 @@ extension HomeViewController: SkeletonTableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 20
+            return presenter.viewData.dataArray.count
         default:
             return 0
         }
@@ -87,12 +125,12 @@ extension HomeViewController: SkeletonTableViewDataSource {
         case 0:
             let cellIdentifier = TopThumbnailTableViewCell.className
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TopThumbnailTableViewCell
-            cell.configure()
+            cell.configure(data: presenter.viewData.topData)
             return cell
         case 1:
             let cellIdentifier = ThumbnailTableViewCell.className
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ThumbnailTableViewCell
-            cell.configure()
+            cell.configure(data: presenter.viewData.dataArray[indexPath.row])
             return cell
         default:
             return UITableViewCell()
@@ -102,18 +140,11 @@ extension HomeViewController: SkeletonTableViewDataSource {
     // MARK: - SkeletonTableViewDataSource
 
     func numSections(in collectionSkeletonView: UITableView) -> Int {
-        return 2
+        return self.numberOfSections(in: collectionSkeletonView)
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 20
-        default:
-            return 0
-        }
+        return self.tableView(skeletonView, numberOfRowsInSection: section)
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -128,20 +159,7 @@ extension HomeViewController: SkeletonTableViewDataSource {
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView, skeletonCellForRowAt indexPath: IndexPath) -> UITableViewCell? {
-        switch indexPath.section {
-        case 0:
-            let cellIdentifier = TopThumbnailTableViewCell.className
-            let cell = skeletonView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TopThumbnailTableViewCell
-            cell.configure()
-            return cell
-        case 1:
-            let cellIdentifier = ThumbnailTableViewCell.className
-            let cell = skeletonView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ThumbnailTableViewCell
-            cell.configure()
-            return cell
-        default:
-            return UITableViewCell()
-        }
+        return self.tableView(skeletonView, cellForRowAt: indexPath)
     }
 }
 
