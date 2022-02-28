@@ -190,26 +190,37 @@ extension HomeViewController: UIScrollViewDelegate {
         guard let firstCell = tableView.cellForRow(at: [0, 0]) as? FadeInTabSourceView else {
             return
         }
+        let contentOffsetY = scrollView.contentOffset.y
 
-        let fadeInTabBaseViewHeight = firstCell.fadeInTabBaseView.frame.height
+        // fadeInTabの透過度
+        firstCell.fadeInTabAlpha(contentOffsetY: contentOffsetY)
 
-        let y = scrollView.contentOffset.y
-        let swipingDown = y <= 0
-        let shouldSnap = y > fadeInTabBaseViewHeight
+        // タブを表示する閾値
+        let shouldFadeIn = contentOffsetY > self.headerView.headerImageViewHeight - firstCell.fadeInTabBaseViewHeight
 
-        let cellFadeInTabBaseViewAlpha: CGFloat = (y / fadeInTabBaseViewHeight) > 1 ? 1 : y / fadeInTabBaseViewHeight
-        firstCell.fadeInTabAlpha = cellFadeInTabBaseViewAlpha
+        // headerImageViewの透過度
+        self.headerView.headerImageViewAlpha = {
+            if shouldFadeIn {
+                return 0.0
+            } else if contentOffsetY <= 0 {
+                return 1.0
+            } else {
+                return firstCell.fadeInTabBaseViewHeight / contentOffsetY
+            }
+        }()
 
-        UIView.animate(withDuration: 0.3) {
-            self.headerView.updateHeaderImageViewAlpha(swipingDown ? 1.0 : 0.0)
-        }
+        // headerImageViewを画面外に移動させる
+        // 高さ分までしか上に移動させない
+        self.headerViewTopConstraint?.constant = {
+            if contentOffsetY > self.headerView.headerImageViewHeight {
+                return -headerView.headerImageViewHeight
+            } else {
+                return -contentOffsetY
+            }
+        }()
 
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: []) {
-            // headerImageViewを画面外に移動させる
-            self.headerViewTopConstraint?.constant = shouldSnap ? -self.headerView.headerImageViewHeight : 0
-
-            shouldSnap ? self.headerView.showFadeInTabView() : self.headerView.hideFadeInTabView()
-
+            shouldFadeIn ? self.headerView.showFadeInTabView() : self.headerView.hideFadeInTabView()
             self.view.layoutIfNeeded()
         }
     }

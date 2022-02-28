@@ -28,7 +28,7 @@ final class HomePresenterImpl: HomePresenter {
             .init(id: 3, title: "最近アップロードされた動画"),
             .init(id: 4, title: "視聴済み"),
         ]
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
             self?.view?.reloadTabs()
         }
     }
@@ -65,7 +65,7 @@ final class HomePresenterImpl: HomePresenter {
         ])
         self.viewData = viewData
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
             self?.view?.reloadView()
         }
     }

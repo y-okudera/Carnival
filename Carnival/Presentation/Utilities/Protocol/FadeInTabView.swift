@@ -17,14 +17,11 @@ import UIKit
 
 /// フェードイン元のView
 protocol FadeInTabSourceView: AnyObject {
-    var fadeInTabBaseView: UIView! { get }
-    var fadeInTabAlpha: CGFloat { get set }
+    var fadeInTabBaseViewHeight: CGFloat { get }
+    func fadeInTabAlpha(contentOffsetY: CGFloat)
 }
 
 /// フェードイン先のView
 protocol FadeInTabDestinationView: AnyObject {
     var fadeInTabView: UIView! { get }
-    var fadeInTabAlpha: CGFloat { get set }
-    // TODO: インタラクティブにアニメーションさせるときに追加
-//    var fadeInTabOffsetY: CGFloat { get set }
 }

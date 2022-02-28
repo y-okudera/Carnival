@@ -16,7 +16,11 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
     @IBOutlet private(set) weak var fadeInTabBaseView: UIView!
     @IBOutlet private weak var fadeInTabView: TabView!
 
-    var fadeInTabAlpha: CGFloat = 0 {
+    var fadeInTabBaseViewHeight: CGFloat {
+        fadeInTabBaseView.frame.height
+    }
+
+    private var fadeInTabAlpha: CGFloat = 0 {
         didSet {
             fadeInTabBaseView.alpha = fadeInTabAlpha
             fadeInTabBaseView.subviews.forEach {
@@ -54,5 +58,10 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
                 .cacheOriginalImage
             ]
         )
+    }
+
+    func fadeInTabAlpha(contentOffsetY: CGFloat) {
+        let alpha: CGFloat = max(min(contentOffsetY / fadeInTabBaseViewHeight, 1.0), 0.0)
+        fadeInTabAlpha = alpha
     }
 }

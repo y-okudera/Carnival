@@ -48,13 +48,19 @@ final class HomeHeaderView: UIView, FadeInTabDestinationView {
         return height
     }
 
-    var fadeInTabAlpha: CGFloat = 0 {
+    private var fadeInTabAlpha: CGFloat = 0 {
         didSet {
             // 子Viewもセットでalphaを更新する
             fadeInTabView.alpha = fadeInTabAlpha
             fadeInTabView.subviews.forEach {
                 $0.alpha = fadeInTabAlpha
             }
+        }
+    }
+
+    var headerImageViewAlpha: CGFloat = 1 {
+        didSet {
+            headerImageView.alpha = headerImageViewAlpha
         }
     }
 
@@ -81,10 +87,6 @@ extension HomeHeaderView {
         hideFadeInTabView()
     }
 
-    func updateHeaderImageViewAlpha(_ alpha: CGFloat) {
-        headerImageView.alpha = alpha
-    }
-
     func hideFadeInTabView() {
         fadeInTabAlpha = 0
 
@@ -108,10 +110,6 @@ extension HomeHeaderView {
         fadeInTabViewTopConstraint.constant = 0
 
         fadeInTabViewBottomConstraint.priority = .defaultHigh
-    }
-
-    func update(_ offsetY: CGFloat) {
-        // TODO: - hideFadeInTabView() と showFadeInTabView() の0/1のアニメーションではなく、スクロールのoffsetに応じてインタラクティブにアニメーションさせる
     }
 }
 
