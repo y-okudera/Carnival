@@ -139,6 +139,8 @@ extension HomeViewController: SkeletonTableViewDataSource {
 
     // MARK: - SkeletonTableViewDataSource
 
+    // TODO: - データ取得前に固定の個数のスケルトンを表示させるよう修正する
+
     func numSections(in collectionSkeletonView: UITableView) -> Int {
         return self.numberOfSections(in: collectionSkeletonView)
     }
