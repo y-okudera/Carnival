@@ -8,6 +8,7 @@
 import Foundation
 
 protocol HomePresenter: AnyObject {
+    var tabDataArray: [TabData] { get }
     var viewData: HomeViewData { get }
     func viewWillAppear()
     func requestHomeViewData(tabId: Int)
@@ -16,19 +17,21 @@ protocol HomePresenter: AnyObject {
 final class HomePresenterImpl: HomePresenter {
     
     weak var view: HomeView?
+    private(set) var tabDataArray: [TabData] = []
     private(set) var viewData: HomeViewData = .init(
         topData: .init(id: 0, title: "", thumbnailUrl: ""),
         dataArray: []
     )
     
     func viewWillAppear() {
-        view?.reloadTabs(tabDataArray: [
+        tabDataArray = [
             .init(id: 0, title: "すべて"),
             .init(id: 1, title: "関連動画"),
             .init(id: 2, title: "提供: yuoku"),
             .init(id: 3, title: "最近アップロードされた動画"),
             .init(id: 4, title: "視聴済み"),
-        ])
+        ]
+        view?.reloadTabs()
     }
 
     func requestHomeViewData(tabId: Int) {

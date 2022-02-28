@@ -62,6 +62,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="fadeInTabBaseView" destination="1qy-Zl-X5f" id="L0U-M1-ZIl"/>
+                <outlet property="fadeInTabView" destination="7Ti-Qr-I3l" id="mtX-zB-e4x"/>
                 <outlet property="nameLabel" destination="Ugb-4A-BFe" id="Hyn-xI-WEw"/>
                 <outlet property="thumbnailImageView" destination="3CW-4T-bEP" id="kgk-8h-h84"/>
             </connections>

@@ -14,6 +14,7 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
     @IBOutlet private weak var thumbnailImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private(set) weak var fadeInTabBaseView: UIView!
+    @IBOutlet private weak var fadeInTabView: TabView!
 
     var fadeInTabAlpha: CGFloat = 0 {
         didSet {
@@ -36,8 +37,9 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
         nameLabel.skeletonTextNumberOfLines = 2
     }
 
-    func configure(data: HomeContentData) {
+    func configure(data: HomeContentData, tabDataArray: [TabData]) {
         self.selectionStyle = .none
+        fadeInTabView.tabDataArray = tabDataArray
         fadeInTabAlpha = 0
         nameLabel.text = data.title
         thumbnailImageView.kf.setImage(

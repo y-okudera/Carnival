@@ -9,7 +9,7 @@ import UIKit
 import SkeletonView
 
 protocol HomeView: AnyObject {
-    func reloadTabs(tabDataArray: [TabData])
+    func reloadTabs()
     func reloadView()
 }
 
@@ -76,10 +76,10 @@ final class HomeViewController: UIViewController {
 // MARK: - HomeView
 extension HomeViewController: HomeView {
 
-    func reloadTabs(tabDataArray: [TabData]) {
-        headerView.setTabData(tabDataArray)
+    func reloadTabs() {
+        headerView.setTabData(presenter.tabDataArray)
 
-        guard let firstTabData = tabDataArray.first else {
+        guard let firstTabData = presenter.tabDataArray.first else {
             return
         }
 
@@ -125,7 +125,7 @@ extension HomeViewController: SkeletonTableViewDataSource {
         case 0:
             let cellIdentifier = TopThumbnailTableViewCell.className
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TopThumbnailTableViewCell
-            cell.configure(data: presenter.viewData.topData)
+            cell.configure(data: presenter.viewData.topData, tabDataArray: presenter.tabDataArray)
             return cell
         case 1:
             let cellIdentifier = ThumbnailTableViewCell.className
