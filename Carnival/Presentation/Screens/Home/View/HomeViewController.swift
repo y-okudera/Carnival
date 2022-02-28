@@ -79,7 +79,7 @@ extension HomeViewController: HomeView {
     func reloadTabs() {
         headerView.setTabData(presenter.tabDataArray)
 
-        guard let firstTabData = presenter.tabDataArray.first else {
+        guard let firstTabData = presenter.tabDataArray?.first else {
             return
         }
 
@@ -114,7 +114,8 @@ extension HomeViewController: SkeletonTableViewDataSource {
         case 0:
             return 1
         case 1:
-            return presenter.viewData.dataArray.count
+            let skeletonCount = 10
+            return presenter.viewData?.dataArray.count ?? skeletonCount
         default:
             return 0
         }
@@ -125,12 +126,12 @@ extension HomeViewController: SkeletonTableViewDataSource {
         case 0:
             let cellIdentifier = TopThumbnailTableViewCell.className
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TopThumbnailTableViewCell
-            cell.configure(data: presenter.viewData.topData, tabDataArray: presenter.tabDataArray)
+            cell.configure(data: presenter.viewData?.topData, tabDataArray: presenter.tabDataArray)
             return cell
         case 1:
             let cellIdentifier = ThumbnailTableViewCell.className
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ThumbnailTableViewCell
-            cell.configure(data: presenter.viewData.dataArray[indexPath.row])
+            cell.configure(data: presenter.viewData?.dataArray[indexPath.row])
             return cell
         default:
             return UITableViewCell()
@@ -138,8 +139,6 @@ extension HomeViewController: SkeletonTableViewDataSource {
     }
 
     // MARK: - SkeletonTableViewDataSource
-
-    // TODO: - データ取得前に固定の個数のスケルトンを表示させるよう修正する
 
     func numSections(in collectionSkeletonView: UITableView) -> Int {
         return self.numberOfSections(in: collectionSkeletonView)

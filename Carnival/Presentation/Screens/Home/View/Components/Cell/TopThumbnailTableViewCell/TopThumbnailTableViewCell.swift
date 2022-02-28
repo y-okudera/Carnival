@@ -37,10 +37,14 @@ final class TopThumbnailTableViewCell: UITableViewCell, FadeInTabSourceView {
         nameLabel.skeletonTextNumberOfLines = 2
     }
 
-    func configure(data: HomeContentData, tabDataArray: [TabData]) {
+    func configure(data: HomeContentData?, tabDataArray: [TabData]?) {
         self.selectionStyle = .none
-        fadeInTabView.tabDataArray = tabDataArray
+        fadeInTabView.tabDataArray = tabDataArray ?? []
         fadeInTabAlpha = 0
+
+        guard let data = data else {
+            return
+        }
         nameLabel.text = data.title
         thumbnailImageView.kf.setImage(
             with: URL(string: data.thumbnailUrl),

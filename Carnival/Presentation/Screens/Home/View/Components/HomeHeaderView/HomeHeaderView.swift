@@ -116,7 +116,10 @@ extension HomeHeaderView {
 }
 
 extension HomeHeaderView {
-    func setTabData(_ tabDataArray: [TabData]) {
+    func setTabData(_ tabDataArray: [TabData]?) {
+        guard let tabDataArray = tabDataArray else {
+            return
+        }
         tabView.tabDataArray = tabDataArray
     }
 }

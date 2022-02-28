@@ -8,8 +8,8 @@
 import Foundation
 
 protocol HomePresenter: AnyObject {
-    var tabDataArray: [TabData] { get }
-    var viewData: HomeViewData { get }
+    var tabDataArray: [TabData]? { get }
+    var viewData: HomeViewData? { get }
     func viewWillAppear()
     func requestHomeViewData(tabId: Int)
 }
@@ -17,11 +17,8 @@ protocol HomePresenter: AnyObject {
 final class HomePresenterImpl: HomePresenter {
     
     weak var view: HomeView?
-    private(set) var tabDataArray: [TabData] = []
-    private(set) var viewData: HomeViewData = .init(
-        topData: .init(id: 0, title: "", thumbnailUrl: ""),
-        dataArray: []
-    )
+    private(set) var tabDataArray: [TabData]?
+    private(set) var viewData: HomeViewData?
     
     func viewWillAppear() {
         tabDataArray = [
@@ -31,7 +28,9 @@ final class HomePresenterImpl: HomePresenter {
             .init(id: 3, title: "最近アップロードされた動画"),
             .init(id: 4, title: "視聴済み"),
         ]
-        view?.reloadTabs()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            self?.view?.reloadTabs()
+        }
     }
 
     func requestHomeViewData(tabId: Int) {
@@ -65,6 +64,9 @@ final class HomePresenterImpl: HomePresenter {
             .init(id: 9, title: "HomeContentData-009", thumbnailUrl: "https://placehold.jp/\(colorCode)/ffffff/428x313.png?text=9"),
         ])
         self.viewData = viewData
-        view?.reloadView()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            self?.view?.reloadView()
+        }
     }
 }
